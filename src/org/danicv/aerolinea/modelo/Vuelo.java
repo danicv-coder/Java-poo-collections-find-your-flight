@@ -2,7 +2,7 @@ package org.danicv.aerolinea.modelo;
 
 import java.util.Date;
 
-public class Vuelo {
+public class Vuelo implements Comparable<Vuelo> {
 	private String nombre;
 	private String origen;
 	private String destino;
@@ -21,46 +21,32 @@ public class Vuelo {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public String getOrigen() {
 		return origen;
-	}
-
-	public void setOrigen(String origen) {
-		this.origen = origen;
 	}
 
 	public String getDestino() {
 		return destino;
 	}
 
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
-
 	public Date getFechaHora() {
 		return fechaHora;
-	}
-
-	public void setFechaHora(Date fechaHora) {
-		this.fechaHora = fechaHora;
 	}
 
 	public Integer getCantPersona() {
 		return cantPersona;
 	}
 
-	public void setCantPersona(Integer cantPersona) {
-		this.cantPersona = cantPersona;
-	}
-
 	@Override
 	public String toString() {
 		return "\nVuelo = " + nombre + ", origen = " + origen + ", destino = " + destino + ", fechaHora = " + fechaHora
 				+ ", Num pasajeros = " + cantPersona;
+	}
+
+	@Override
+	public int compareTo(Vuelo o) {
+
+		return this.fechaHora.compareTo(o.fechaHora);
 	}
 
 }
